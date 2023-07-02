@@ -5,7 +5,7 @@ const router = express.Router();
 //Importing Database Insertion Model
 const Exchange = require("./../models/exchange");
 
-//When Page Reloads Dispaly Some Data
+//When Page Loads Fetch Data from API and Store it in Database
 router.get("/", async (req, res) => {
   let execData;
   try {
@@ -26,13 +26,24 @@ router.get("/", async (req, res) => {
           }
         });
       });
-      res.status(200).json({ message: `Data Received Successfully`, icons });
+      res.status(200).json({ message: `success` });
     }
   } catch (err) {
     res.status(500).json({ err });
   }
+});
 
-  //2)Stores data in Database
+//When Exchangelist is called it will display data
+
+router.get("/exchangelist", async (req, res) => {
+  try {
+    const exchange = await Exchange.find();
+    res
+      .status(200)
+      .json({ message: "success", count: exchange.length, exchange });
+  } catch (err) {
+    res.status(500).json({ message: "Some Internal Error Occurred" });
+  }
 });
 
 module.exports = router;
