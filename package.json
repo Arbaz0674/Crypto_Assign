@@ -1,0 +1,26 @@
+{
+  "name": "crypto_exchange",
+  "version": "1.0.0",
+  "description": "Main Package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "both": "concurrently \"npm run start\" \"nodemon backend/index.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arbaz0674/Crypto_Assign.git"
+  },
+  "author": "Arbaz Khan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arbaz0674/Crypto_Assign/issues"
+  },
+  "homepage": "https://github.com/Arbaz0674/Crypto_Assign#readme",
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
